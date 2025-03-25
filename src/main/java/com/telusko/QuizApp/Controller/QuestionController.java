@@ -1,14 +1,12 @@
 package com.telusko.QuizApp.Controller;
 
-import com.telusko.QuizApp.Model.Question;
-import com.telusko.QuizApp.Service.QuestionService;
+
+import com.telusko.question_service.Model.Question;
+import com.telusko.question_service.Service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -42,4 +40,12 @@ public class QuestionController {
         return questionService.deleteQuestion(id);
     }
 
+    @GetMapping("generate")
+    public ResponseEntity<List<Integer>> getQuestionsForQuiz(){
+        return questionService.getQuestionForQuiz();
+    }
+    //urls needed:
+    //generate quiz
+    //getQuestions (based on quiz id)
+    //getScore
 }

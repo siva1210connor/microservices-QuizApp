@@ -1,27 +1,22 @@
 package com.telusko.QuizApp.Model;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
-
-@NoArgsConstructor
-@AllArgsConstructor
-@Entity
-@Table(name = "question")
-public class Question {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class QuestionWrapper {
     private int id;
     private String questionTitle;
     private String option1;
     private String option2;
     private String option3;
     private String option4;
-    private String rightAnswer;
-    private String difficultylevel;
-    private String category;
+
+    public QuestionWrapper(int id, String questionTitle, String option1, String option2, String option3, String option4) {
+        this.id = id;
+        this.questionTitle = questionTitle;
+        this.option1 = option1;
+        this.option2 = option2;
+        this.option3 = option3;
+        this.option4 = option4;
+    }
 
     public int getId() {
         return id;
@@ -69,29 +64,5 @@ public class Question {
 
     public void setOption4(String option4) {
         this.option4 = option4;
-    }
-
-    public String getRightAnswer() {
-        return rightAnswer;
-    }
-
-    public void setRightAnswer(String rightAnswer) {
-        this.rightAnswer = rightAnswer;
-    }
-
-    public String getDifficultylevel() {
-        return difficultylevel;
-    }
-
-    public void setDifficultylevel(String difficultylevel) {
-        this.difficultylevel = difficultylevel;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 }
